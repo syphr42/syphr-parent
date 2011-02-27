@@ -42,7 +42,7 @@
     <menu name="Project">
       <item name="Home"              href="/index.html"/>
       <item name="Prom"              href="/prom"/>
-      <item name="libmythtv-java"    href="/mythtv"/>
+      <item name="libmythtv-java"    href="/libmythtv-java"/>
     </menu>
   </body>
 </project>
