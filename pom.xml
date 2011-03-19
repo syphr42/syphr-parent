@@ -64,60 +64,6 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>${compiler.source.level}</source>
-					<target>${compiler.target.level}</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.1.0</version>
-				<configuration>
-					<excludeDependencies>true</excludeDependencies>
-					<manifestLocation>target/osgi</manifestLocation>
-					<instructions>
-						<!-- stops the "uses" clauses being added to "Export-Package" manifest 
-							entry -->
-						<_nouses>true</_nouses>
-						<!-- Stop the JAVA_1_n_HOME variables from being treated as headers 
-							by Bnd -->
-						<_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME</_removeheaders>
-					</instructions>
-				</configuration>
-				<executions>
-					<execution>
-						<id>bundle-manifest</id>
-						<phase>process-classes</phase>
-						<goals>
-							<goal>manifest</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.3.1</version>
-				<configuration>
-					<archive>
-						<manifestFile>target/osgi/MANIFEST.MF</manifestFile>
-						<manifestEntries>
-							<Implementation-Title>${project.name}</Implementation-Title>
-							<Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
-							<Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
-							<Implementation-Version>${project.version}</Implementation-Version>
-						</manifestEntries>
-					</archive>
-				</configuration>
-			</plugin>
-			
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>2.2</version>
 				<executions>
@@ -130,6 +76,92 @@
 				</executions>
 			</plugin>
 		</plugins>
+		
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>${compiler.source.level}</source>
+						<target>${compiler.target.level}</target>
+					</configuration>
+				</plugin>
+	
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>2.3.4</version>
+					<configuration>
+						<excludeDependencies>true</excludeDependencies>
+						<manifestLocation>target/osgi</manifestLocation>
+						<instructions>
+							<!-- stops the "uses" clauses being added to "Export-Package" manifest 
+								entry -->
+							<_nouses>true</_nouses>
+							<!-- Stop the JAVA_1_n_HOME variables from being treated as headers 
+								by Bnd -->
+							<_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME</_removeheaders>
+						</instructions>
+					</configuration>
+					<executions>
+						<execution>
+							<id>bundle-manifest</id>
+							<phase>process-classes</phase>
+							<goals>
+								<goal>manifest</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+	
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.3.1</version>
+					<configuration>
+						<archive>
+							<manifestFile>target/osgi/MANIFEST.MF</manifestFile>
+							<manifestEntries>
+								<Implementation-Title>${project.name}</Implementation-Title>
+								<Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+								<Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
+								<Implementation-Version>${project.version}</Implementation-Version>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.2.1</version>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>assembly</goal>
+							</goals>
+							<configuration>
+								<descriptors>
+									<descriptor>src/main/assembly/bin.xml</descriptor>
+									<descriptor>src/main/assembly/src.xml</descriptor>
+								</descriptors>
+								<tarLongFileMode>gnu</tarLongFileMode>
+								<outputDirectory>target/assemblies</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 	<reporting>
