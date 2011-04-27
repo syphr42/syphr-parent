@@ -51,6 +51,11 @@
 		<developerConnection>scm:git:ssh://git@github.com:syphr42/syphr-parent.git</developerConnection>
 	</scm>
 
+	<ciManagement>
+		<system>jenkins</system>
+		<url>http://build.syphr.org</url>
+	</ciManagement>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
