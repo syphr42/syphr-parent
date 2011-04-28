@@ -47,5 +47,9 @@
       <item name="Prom"              href="/prom"/>
       <item name="libmythtv-java"    href="/libmythtv-java"/>
     </menu>
+    
+    <menu name="Continuous Integration">
+    	<item name="Jenkins"		href="${project.ciManagement.url}"/>
+    </menu>
   </body>
 </project>
