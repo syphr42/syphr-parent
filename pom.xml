@@ -30,7 +30,7 @@
 	</parent>
 
 	<name>syphr.org</name>
-	<url>http://www.syphr.org</url>
+	<url>http://${site.host}</url>
 	<inceptionYear>2008</inceptionYear>
 
 	<organization>
@@ -64,7 +64,8 @@
 		<compiler.source.level>1.6</compiler.source.level>
 		<compiler.target.level>1.6</compiler.target.level>
 
-		<site.deploy.url>scp://10.0.1.12/var/www/dev.syphr.org</site.deploy.url>
+		<site.host>dev.syphr.org</site.host>
+		<site.deploy.url>scp://10.0.1.12/var/www/${site.host}</site.deploy.url>
 	</properties>
 
 	<build>
@@ -221,7 +222,7 @@
 		<profile>
 			<id>sonatype-oss-release</id>
 			<properties>
-				<site.deploy.url>scp://10.0.1.12/var/www/syphr.org</site.deploy.url>
+				<site.host>syphr.org</site.host>
 			</properties>
 		</profile>
 	</profiles>
