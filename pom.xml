@@ -29,7 +29,7 @@
 		<version>7</version>
 	</parent>
 
-	<name>syphr.org</name>
+	<name>${site.host}</name>
 	<url>http://${site.host}</url>
 	<inceptionYear>2008</inceptionYear>
 
@@ -63,8 +63,17 @@
 
 		<compiler.source.level>1.6</compiler.source.level>
 		<compiler.target.level>1.6</compiler.target.level>
+		
+		<site.host.stable>syphr.org</site.host.stable>
+		<site.host.stable.desc>Stable Release Site</site.host.stable.desc>
+		
+		<site.host.dev>dev.syphr.org</site.host.dev>
+		<site.host.dev.desc>Active Development Site</site.host.dev.desc>
 
-		<site.host>dev.syphr.org</site.host>
+		<site.host>${site.host.dev}</site.host>
+		<site.host.other>${site.host.stable}</site.host.other>
+		<site.host.other.desc>${site.host.stable.desc}</site.host.other.desc>
+		
 		<site.deploy.url>scp://10.0.1.12/var/www/${site.host}</site.deploy.url>
 	</properties>
 
@@ -222,7 +231,9 @@
 		<profile>
 			<id>sonatype-oss-release</id>
 			<properties>
-				<site.host>syphr.org</site.host>
+		        <site.host>${site.host.stable}</site.host>
+		        <site.host.other>${site.host.dev}</site.host.other>
+		        <site.host.other.desc>${site.host.dev.desc}</site.host.other.desc>
 			</properties>
 		</profile>
 	</profiles>
