@@ -49,7 +49,7 @@
 	<scm>
 		<url>https://github.com/syphr42/syphr-parent</url>
 		<connection>scm:git:git://github.com/syphr42/syphr-parent.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com:syphr42/syphr-parent.git</developerConnection>
+		<developerConnection>scm:git:ssh://git@github.com/syphr42/syphr-parent.git</developerConnection>
 	</scm>
 
 	<ciManagement>
