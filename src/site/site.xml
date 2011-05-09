@@ -17,7 +17,7 @@
 <project xmlns="http://maven.apache.org/DECORATION/1.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
-	<publishDate position="right" />
+	<publishDate position="left" />
 	<version position="none" />
 
 	<skin>
@@ -44,9 +44,9 @@
 			</script>
 		</head>
 		
-		<breadcrumbs>
+		<links>
             <item name="${site.host.other.desc}" href="http://${site.host.other}" />
-		</breadcrumbs>
+		</links>
 
 		<menu name="Projects">
 			<item name="Prom" href="/prom" />
