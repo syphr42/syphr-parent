@@ -64,10 +64,10 @@
 		<compiler.target.level>1.6</compiler.target.level>
 		
 		<site.host.stable>syphr.org</site.host.stable>
-		<site.host.stable.desc>Stable Release Site</site.host.stable.desc>
+		<site.host.stable.desc>Stable Release</site.host.stable.desc>
 		
 		<site.host.dev>dev.syphr.org</site.host.dev>
-		<site.host.dev.desc>Active Development Site</site.host.dev.desc>
+		<site.host.dev.desc>Active Development</site.host.dev.desc>
 
 		<site.host>${site.host.dev}</site.host>
 		<site.host.other>${site.host.stable}</site.host.other>
@@ -216,6 +216,12 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.8.1</version>
 			</plugin>
+			
+	        <plugin>
+	        	<groupId>org.apache.maven.plugins</groupId>
+	        	<artifactId>maven-changelog-plugin</artifactId>
+	        	<version>2.2</version>
+	        </plugin>
 		</plugins>
 	</reporting>
 
