@@ -118,7 +118,7 @@
 					<version>2.3.4</version>
 					<configuration>
 						<excludeDependencies>true</excludeDependencies>
-						<manifestLocation>target/osgi</manifestLocation>
+						<manifestLocation>${project.build.directory}/osgi</manifestLocation>
 						<instructions>
 							<!-- stops the "uses" clauses being added to "Export-Package" manifest 
 								entry -->
@@ -145,7 +145,7 @@
 					<version>2.3.1</version>
 					<configuration>
 						<archive>
-							<manifestFile>target/osgi/MANIFEST.MF</manifestFile>
+							<manifestFile>${project.build.directory}/osgi/MANIFEST.MF</manifestFile>
 							<manifestEntries>
 								<Implementation-Title>${project.name}</Implementation-Title>
 								<Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
@@ -166,7 +166,7 @@
 							<descriptor>src/main/assembly/src.xml</descriptor>
 						</descriptors>
 						<tarLongFileMode>gnu</tarLongFileMode>
-						<outputDirectory>target/assemblies</outputDirectory>
+						<outputDirectory>${project.build.directory}/assemblies</outputDirectory>
 					</configuration>
 				</plugin>
 
