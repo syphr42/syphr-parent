@@ -28,13 +28,13 @@
 		<version>7</version>
 	</parent>
 
-	<name>${site.host}</name>
-	<url>http://${site.host}</url>
+	<name>syphr</name>
+	<url>http://syphr.org</url>
 	<inceptionYear>2008</inceptionYear>
 
 	<organization>
 		<name>Gregory P. Moyer</name>
-		<url>http://www.syphr.org</url>
+		<url>http://syphr.org</url>
 	</organization>
 
 	<licenses>
@@ -64,16 +64,11 @@
 		<compiler.target.level>1.6</compiler.target.level>
 		
 		<site.host.stable>syphr.org</site.host.stable>
-		<site.host.stable.desc>Stable Release</site.host.stable.desc>
-		
 		<site.host.dev>dev.syphr.org</site.host.dev>
-		<site.host.dev.desc>Active Development</site.host.dev.desc>
-
-		<site.host>${site.host.dev}</site.host>
-		<site.host.other>${site.host.stable}</site.host.other>
-		<site.host.other.desc>${site.host.stable.desc}</site.host.other.desc>
 		
-		<site.deploy.url>scp://10.0.1.12/var/www/${site.host}</site.deploy.url>
+		<site.deploy.prefix>scp://10.0.1.12/var/www</site.deploy.prefix>
+		<site.deploy.url.stable>${site.deploy.prefix}/${site.host.stable}</site.deploy.url.stable>
+		<site.deploy.url.dev>${site.deploy.prefix}/${site.host.dev}</site.deploy.url.dev>
 	</properties>
 
 	<build>
@@ -81,7 +76,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>2.2</version>
+				<version>3.0</version>
 				<executions>
 					<execution>
 						<id>attach-site-descriptor</id>
@@ -90,6 +85,9 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<stagingSiteURL>${site.deploy.url.dev}</stagingSiteURL>
+				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>org.apache.maven.wagon</groupId>
@@ -228,18 +226,7 @@
 	<distributionManagement>
 		<site>
 			<id>syphr.org</id>
-			<url>${site.deploy.url}</url>
+			<url>${site.deploy.url.stable}</url>
 		</site>
 	</distributionManagement>
-	
-	<profiles>
-		<profile>
-			<id>sonatype-oss-release</id>
-			<properties>
-		        <site.host>${site.host.stable}</site.host>
-		        <site.host.other>${site.host.dev}</site.host.other>
-		        <site.host.other.desc>${site.host.dev.desc}</site.host.other.desc>
-			</properties>
-		</profile>
-	</profiles>
 </project>

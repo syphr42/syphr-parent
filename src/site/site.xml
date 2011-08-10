@@ -43,10 +43,6 @@
 
 			</script>
 		</head>
-		
-		<links>
-            <item name="${site.host.other.desc}" href="http://${site.host.other}" />
-		</links>
 
 		<menu name="Projects">
 			<item name="Prom" href="/prom" />
