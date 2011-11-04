@@ -47,6 +47,7 @@
 		<menu name="Projects">
 			<item name="Prom" href="/prom" />
 			<item name="MythTV Java API" href="/libmythtv-java" />
+			<item name="MythTV Monitor" href="/mythtv-monitor" />
 			<item name="X.509 Utilities" href="/utils-x509" />
 		</menu>
 
