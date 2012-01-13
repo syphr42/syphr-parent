@@ -30,6 +30,7 @@
 		<head>
 			<script type="text/javascript">
 
+              <!-- Google Analytics -->
 	          var _gaq = _gaq || [];
 	          _gaq.push(['_setAccount', 'UA-18307690-1']);
 	          _gaq.push(['_setDomainName', '.syphr.org']);
@@ -40,19 +41,51 @@
 	            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	          })();
-
+	          
+	          <!-- Google Plus One -->
+			  (function() {
+			    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			    po.src = 'https://apis.google.com/js/plusone.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();
+			  
+			  <!-- Facebook Like -->
+			  (function(d, s, id) {
+			     var js, fjs = d.getElementsByTagName(s)[0];
+			     if (d.getElementById(id)) return;
+			     js = d.createElement(s); js.id = id;
+			     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			     fjs.parentNode.insertBefore(js, fjs);
+			  }(document, 'script', 'facebook-jssdk'));
+			  
+			  <!-- Twitter Tweet -->
+			  !function(d,s,id) {
+			     var js,fjs=d.getElementsByTagName(s)[0];
+			     if(!d.getElementById(id)) { 
+			         js=d.createElement(s); 
+			         js.id=id; js.src="//platform.twitter.com/widgets.js"; 
+			         fjs.parentNode.insertBefore(js,fjs);
+			     }
+			  }(document,"script","twitter-wjs");
 			</script>
+			
+			<div class="g-plusone" data-size="small" data-annotation="bubble"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+			<div><a href="https://twitter.com/share" class="twitter-share-button">Tweet</a></div>
 		</head>
 
 		<menu name="Projects">
 			<item name="Prom" href="/prom" />
 			<item name="MythTV Java API" href="/libmythtv-java" />
-			<item name="MythTV Monitor" href="/mythtv-monitor" />
+			<!-- TODO uncomment when this project is released -->
+<!-- 			<item name="MythTV Monitor" href="/mythtv-monitor" /> -->
 			<item name="X.509 Utilities" href="/utils-x509" />
 		</menu>
 
 		<menu name="Continuous Integration">
 			<item name="Jenkins" href="${project.ciManagement.url}" />
 		</menu>
+		
+		
 	</body>
 </project>
