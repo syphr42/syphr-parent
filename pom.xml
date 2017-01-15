@@ -69,6 +69,8 @@
 		<site.deploy.prefix>scp://10.0.1.12/var/www</site.deploy.prefix>
 		<site.deploy.url.stable>${site.deploy.prefix}/${site.host.stable}</site.deploy.url.stable>
 		<site.deploy.url.dev>${site.deploy.prefix}/${site.host.dev}</site.deploy.url.dev>
+		
+		<site.profile>pre-release</site.profile>
 	</properties>
 
 	<build>
@@ -123,7 +125,7 @@
 							<_nouses>true</_nouses>
 							<!-- Stop the JAVA_1_n_HOME variables from being treated as headers 
 								by Bnd -->
-							<_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME</_removeheaders>
+							<_removeheaders>JAVA_1_3_HOME,JAVA_1_4_HOME,JAVA_1_5_HOME,JAVA_1_6_HOME,JAVA_1_7_HOME</_removeheaders>
 						</instructions>
 					</configuration>
 					<executions>
@@ -255,4 +257,14 @@
 			<url>${site.deploy.url.stable}</url>
 		</site>
 	</distributionManagement>
+	
+    <profiles>
+        <profile>
+            <id>sonatype-oss-release</id>
+
+            <properties>
+                <site.profile>production</site.profile>            
+            </properties>
+        </profile>
+    </profiles>
 </project>
