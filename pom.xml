@@ -23,14 +23,24 @@
     <version>7-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>syphr</name>
+    <name>Syphr Parent POM</name>
+    <description>Parent POM for syphr.org projects</description>
     <url>http://syphr.org</url>
     <inceptionYear>2008</inceptionYear>
 
     <organization>
-        <name>Gregory P. Moyer</name>
+        <name>Syphr</name>
         <url>http://syphr.org</url>
     </organization>
+
+    <developers>
+        <developer>
+            <name>Gregory P. Moyer</name>
+            <email>moyerg@syphr.com</email>
+            <organization>Syphr</organization>
+            <organizationUrl>http://syphr.org</organizationUrl>
+        </developer>
+    </developers>
 
     <licenses>
         <license>
